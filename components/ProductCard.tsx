@@ -4,11 +4,17 @@ import { Product } from "@/types/product";
 import Link from "next/link";
 import { useAppDispatch } from "@/redux/hooks";
 import { addToCart } from "@/redux/cartSlice";
+import { showMessage } from "@/redux/messageSlice";
 
 
 
 export default function ProductCard({ product }: { product: Product }) {
   const dispatch = useAppDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+
+    dispatch(showMessage("Added to cart 🛒"));
+  };
   return (
     
       <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
@@ -68,16 +74,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
           {/* Button */}
           <button
-            onClick={() =>
-              dispatch(
-                addToCart({
-                  id: product.id,
-                  name: product.name,
-                  price: product.price,
-                  slug: product.slug,
-                })
-              )
-            }
+            onClick={handleAddToCart}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800">
             <ShoppingCart className="h-5 w-5" />
             Add to Cart
