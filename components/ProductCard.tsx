@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <Link href={`/products/${product.id}`}>
+    <Link href={`/products/${product.slug}`}>
       <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
         {/* Wishlist Button */}
         <button className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 shadow-md backdrop-blur transition hover:scale-110">

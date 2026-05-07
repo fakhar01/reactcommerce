@@ -7,6 +7,7 @@ export const products: Product[] = [
   {
     id: 1,
     name: "iPhone 15 Pro Max",
+    slug: "iPhone-15-Pro-Max",
     brand: "Apple",
     category: "Smartphones",
     price: 1499,
@@ -15,6 +16,7 @@ export const products: Product[] = [
   {
     id: 2,
     name: "MacBook Pro M3",
+    slug: "MacBook-Pro-M3",
     brand: "Apple",
     category: "Laptops",
     price: 2499,
@@ -23,6 +25,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "AirPods Pro",
+    slug: "AirPods-Pro",
     brand: "Apple",
     category: "Accessories",
     price: 299,
@@ -35,6 +38,7 @@ export const products: Product[] = [
   {
     id: 4,
     name: "Samsung Galaxy S25 Ultra",
+    slug: "Samsung-Galaxy-S25-Ultra",
     brand: "Samsung",
     category: "Smartphones",
     price: 1399,
@@ -43,7 +47,8 @@ export const products: Product[] = [
   {
     id: 5,
     name: "Samsung Galaxy Book",
-    brand: "Samsung",
+    slug: "Samsung-Galaxy-Book",
+   brand: "Samsung",
     category: "Laptops",
     price: 1199,
     image: "/images/samsung/galaxy-book.jpg",
@@ -51,6 +56,7 @@ export const products: Product[] = [
   {
     id: 6,
     name: "Samsung Buds 3",
+    slug: "Samsung-Buds-3",
     brand: "Samsung",
     category: "Accessories",
     price: 199,
@@ -63,6 +69,7 @@ export const products: Product[] = [
   {
     id: 7,
     name: "Asus ROG Strix",
+    slug: "Asus-ROG-Strix",
     brand: "Asus",
     category: "Gaming",
     price: 1899,
@@ -71,6 +78,7 @@ export const products: Product[] = [
   {
     id: 8,
     name: "Asus Zenbook",
+    slug: "Asus-Zenbook",
     brand: "Asus",
     category: "Laptops",
     price: 1299,
@@ -83,6 +91,7 @@ export const products: Product[] = [
   {
     id: 9,
     name: "Sony WH-1000XM5",
+    slug: "Sony-WH-1000XM5",
     brand: "Sony",
     category: "Headphones",
     price: 399,
@@ -91,6 +100,7 @@ export const products: Product[] = [
   {
     id: 10,
     name: "PlayStation 5",
+    slug: "PlayStation-5",
     brand: "Sony",
     category: "Gaming",
     price: 699,
@@ -103,6 +113,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Dell XPS 15",
+    slug: "Dell-XPS-15",
     brand: "Dell",
     category: "Laptops",
     price: 1799,
@@ -111,6 +122,7 @@ export const products: Product[] = [
   {
     id: 12,
     name: "Dell Alienware",
+    slug: "Dell-Alienware",
     brand: "Dell",
     category: "Gaming",
     price: 2299,
@@ -123,6 +135,7 @@ export const products: Product[] = [
   {
     id: 13,
     name: "HP Spectre x360",
+    slug: "HP-Spectre-x360",
     brand: "HP",
     category: "Laptops",
     price: 1599,
@@ -135,6 +148,7 @@ export const products: Product[] = [
   {
     id: 14,
     name: "Lenovo Legion 7",
+    slug: "Lenovo-Legion-7",
     brand: "Lenovo",
     category: "Gaming",
     price: 1999,
@@ -143,6 +157,7 @@ export const products: Product[] = [
   {
     id: 15,
     name: "Lenovo ThinkPad X1",
+    slug: "Lenovo-ThinkPad-X1",
     brand: "Lenovo",
     category: "Laptops",
     price: 1699,
@@ -155,6 +170,7 @@ export const products: Product[] = [
   {
     id: 16,
     name: "Xiaomi 15 Pro",
+    slug: "Xiaomi-15-Pro",
     brand: "Xiaomi",
     category: "Smartphones",
     price: 999,
@@ -167,6 +183,7 @@ export const products: Product[] = [
   {
     id: 17,
     name: "Oppo Reno 14",
+    slug: "Oppo-Reno-14",
     brand: "Oppo",
     category: "Smartphones",
     price: 699,
@@ -179,6 +196,7 @@ export const products: Product[] = [
   {
     id: 18,
     name: "Huawei MateBook",
+    slug: "Huawei-MateBook",
     brand: "Huawei",
     category: "Laptops",
     price: 1399,
@@ -191,6 +209,7 @@ export const products: Product[] = [
   {
     id: 19,
     name: "Google Pixel 9 Pro",
+    slug: "Google-Pixel-9-Pro",
     brand: "Google",
     category: "Smartphones",
     price: 1199,
@@ -203,6 +222,7 @@ export const products: Product[] = [
   {
     id: 20,
     name: "Surface Laptop 7",
+    slug: "Surface-Laptop-7",
     brand: "Microsoft",
     category: "Laptops",
     price: 1899,
