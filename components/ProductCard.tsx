@@ -1,10 +1,16 @@
+"use client";
 import { ShoppingCart, Heart } from "lucide-react";
 import { Product } from "@/types/product";
 import Link from "next/link";
+import { useAppDispatch } from "@/redux/hooks";
+import { addToCart } from "@/redux/cartSlice";
+
+
 
 export default function ProductCard({ product }: { product: Product }) {
+  const dispatch = useAppDispatch();
   return (
-    <Link href={`/products/${product.slug}`}>
+    
       <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
         {/* Wishlist Button */}
         <button className="absolute right-4 top-4 z-10 rounded-full bg-white/90 p-2 shadow-md backdrop-blur transition hover:scale-110">
@@ -12,7 +18,8 @@ export default function ProductCard({ product }: { product: Product }) {
         </button>
 
         {/* Product Image */}
-        <div className="relative h-72 overflow-hidden">
+        <Link href={`/products/${product.slug}`}>
+        <div className="relative overflow-hidden">
           <img
             src={`https://picsum.photos/id/${product.id}/600/500`}
             alt={product.name}
@@ -22,11 +29,12 @@ export default function ProductCard({ product }: { product: Product }) {
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/10 opacity-0 transition group-hover:opacity-100" />
         </div>
+        </Link>
 
         {/* Content */}
-        <div className="space-y-3 p-5">
+        <div className="space-y-1 p-5">
           {/* Category */}
-          <span className="inline-block rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600">
+          <span className="inline-block rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-600">
             Premium Product
           </span>
 
@@ -59,12 +67,22 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
 
           {/* Button */}
-          <button className="flex w-full items-center justify-center gap-2 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800">
+          <button
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  id: product.id,
+                  name: product.name,
+                  price: product.price,
+                  slug: product.slug,
+                })
+              )
+            }
+          className="flex w-full items-center justify-center gap-2 rounded-xl bg-black py-3 font-medium text-white transition hover:bg-gray-800">
             <ShoppingCart className="h-5 w-5" />
             Add to Cart
           </button>
         </div>
       </div>
-    </Link>
   );
 }

@@ -1,6 +1,19 @@
+"use client";
 import CartSummary from "@/components/CartSummary";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  removeFromCart,
+  increaseQty,
+  decreaseQty,
+} from "@/redux/cartSlice";
 
 export default function CartPage() {
+  const dispatch = useAppDispatch();
+  const items = useAppSelector((state) => state.cart.items);
+  const total = items.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   return (
     <main className="bg-gray-50 min-h-screen">
       <section className="max-w-7xl mx-auto px-6 py-12">
@@ -10,9 +23,9 @@ export default function CartPage() {
 
         <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6">
-            {[1, 2].map((item) => (
+            {items.map((item) => (
               <div
-                key={item}
+                key={item.id}
                 className="bg-white rounded-3xl p-6 shadow-sm flex gap-6 items-center"
               >
                 <img
@@ -30,13 +43,21 @@ export default function CartPage() {
                   </p>
 
                   <div className="flex items-center gap-4 mt-4">
-                    <button className="w-10 h-10 rounded-xl border">
+                    <button
+                    onClick={() =>
+                      dispatch(decreaseQty(item.id))
+                    }
+                     className="w-10 h-10 rounded-xl border">
                       -
                     </button>
 
-                    <span className="font-semibold">1</span>
+                    <span className="font-semibold">{item.quantity}</span>
 
-                    <button className="w-10 h-10 rounded-xl border">
+                    <button 
+                    onClick={() =>
+                      dispatch(increaseQty(item.id))
+                    }
+                    className="w-10 h-10 rounded-xl border">
                       +
                     </button>
                   </div>
@@ -47,6 +68,9 @@ export default function CartPage() {
                 </div>
               </div>
             ))}
+            <h2 className="text-xl mt-6">
+            Total: ${total}
+          </h2>
           </div>
 
           <CartSummary />
